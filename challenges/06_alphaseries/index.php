@@ -1,7 +1,9 @@
 <?php
-$projectDir = __DIR__;
-require_once($projectDir.'/src/functions.php');
-?>
+  $projetcdir = __DIR__;
+    require_once($projetcdir."/src/function.php");
+
+ ?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,7 +26,7 @@ require_once($projectDir.'/src/functions.php');
 <body>
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="index.php">AlphaSeries</a>
+        <a class="navbar-brand" href="index.html">AlphaSeries</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,24 +35,24 @@ require_once($projectDir.'/src/functions.php');
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">
+                    <a class="nav-link" href="index.html">
                         <i class="fas fa-home"></i> Accueil
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="classement.php">
+                    <a class="nav-link" href="classement.html">
                          <i class="fas fa-trophy"></i> Classement
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="serie.php">
+                    <a class="nav-link" href="serie.html">
                         <i class="fas fa-random"></i> Une série aléatoire
                     </a>
                 </li>
             </ul>
 
             <!-- Formulaire de recherche -->
-            <form action="recherche.php" method="post" class="form-inline my-2 my-lg-0">
+            <form action="recherche.html" method="post" class="form-inline my-2 my-lg-0">
                 <input name="search" class="form-control mr-sm-2" type="text" placeholder="Rechercher une série" aria-label="Rechercher une série">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">
                     <i class="fa fa-search"></i> <span class="d-md-none">Rechercher</span>
@@ -62,7 +64,7 @@ require_once($projectDir.'/src/functions.php');
     <main role="main">
         <!-- Header -->
         <div class="jumbotron" style="position: relative">
-            <div class="jumbotron-background" style="background-image: url('<?php echo $randomBanner; ?>');"></div>
+            <div class="jumbotron-background" style="background-image: url('<?=  random_baner($shows); ?>');"></div>
             <div class="container">
                 <h1 class="display-3">AlphaSeries</h1>
                 <p>Retrouvez les meilleures séries TV !</p>
@@ -72,14 +74,13 @@ require_once($projectDir.'/src/functions.php');
         <!-- Contenu -->
         <div class="container">
             <div class="row">
-
                 <!-- Les 3 séries les plus populaires -->
                 <div class="col-md-6">
                     <h2><i class="fa fa-fire"></i> Les plus populaires</h2>
                     <p>Les séries qui sont suivient par le plus de monde.</p>
-                        <?php mostPopularShow($showsSortedByPopularity); ?>
+                    <?php popularity($shows);?>
                     <p>
-                        <a class="btn btn-outline-secondary" href="classement.php?type=popularity" role="button">
+                        <a class="btn btn-outline-secondary" href="classement.html" role="button">
                             <i class="fa fa-trophy"></i> Voir tout le classement
                         </a>
                     </p>
@@ -89,9 +90,9 @@ require_once($projectDir.'/src/functions.php');
                 <div class="col-md-6">
                     <h2><i class="fa fa-star"></i> Les mieux notées</h2>
                     <p>Les séries qui ont eu les meilleures notes.</p>
-                        <?php mostRatingShows($showsSortedByRating); ?>
+                    <?php rating($shows); ?>
                     <p>
-                        <a class="btn btn-outline-secondary" href="classement.php?type=rating" role="button">
+                        <a class="btn btn-outline-secondary" href="classement.html" role="button">
                             <i class="fa fa-trophy"></i> Voir tout le classement
                         </a>
                     </p>
